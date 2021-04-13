@@ -42,15 +42,19 @@ php artisan serve
 ```
 
 
-It is necessary to run the following command, as the processing and insertion of data is done through queues
+- It is necessary to run the following command, as the processing and insertion of data is done through queues
 
 ```
 php artisan queue:work
 
 ```
 
+- Login with
 
 ```
-php artisan queue:work
+username: admin@admin.es
+password: 12345678
 
 ```
+
+- Notes

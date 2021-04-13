@@ -3,8 +3,10 @@
 namespace App\Utils;
 
 use App\Jobs\ChunkCsvZones;
+use Illuminate\Bus\Batch;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ChunkCsvService
 {
@@ -13,9 +15,9 @@ class ChunkCsvService
     protected $batch;
 
     /**
-     * @return \Illuminate\Bus\Batch
+     * @return Batch
      */
-    public function getBatch(): \Illuminate\Bus\Batch
+    public function getBatch(): Batch
     {
         return $this->batch;
     }
@@ -42,6 +44,11 @@ class ChunkCsvService
 
         $parts = (array_chunk($data, self::CHUNK_SIZE));
 
+        $path = storage_path('filesImport');
+        if (!file_exists($path)) {
+            File::makeDirectory($path, 0755, true, true);
+        }
+
         foreach ($parts as $key => $part) {
             $this->batch->add(new ChunkCsvZones($header, $part, $key));
         }
@@ -49,7 +56,7 @@ class ChunkCsvService
 
     /**
      * Get the batch if exist or create
-     * @return \Illuminate\Bus\Batch|null
+     * @return Batch|null
      */
     public function getOrCreateBatch()
     {
