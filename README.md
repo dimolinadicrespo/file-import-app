@@ -41,7 +41,14 @@ php artisan serve
 
 ```
 
-Es necesario ejecutar el siguiente comando en un terminal, ya que el procesamiento e inserción de datos se realiza a través de colas
+
+It is necessary to run the following command, as the processing and insertion of data is done through queues
+
+```
+php artisan queue:work
+
+```
+
 
 ```
 php artisan queue:work
