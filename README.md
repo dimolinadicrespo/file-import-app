@@ -57,4 +57,21 @@ password: 12345678
 
 ```
 
-- Notes
+- Important Notes
+
+    In this version of laravel something strange happens with json paging.
+    
+    In the class 
+```
+    vendor/laravel/framework/src/Illuminate/Http/Resources/Json/PaginatedResourceResponse.php
+
+```
+    For the correct functioning of the table listing you have to replace line 29
+    
+```    
+    return is_array($item) ? Arr::get($item, 'resource') : $item->resource;
+```    
+    by 
+```    
+    return is_array($item) ? Arr::get($item, 'resource') : $item;
+```
