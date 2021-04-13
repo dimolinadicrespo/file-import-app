@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/zones/results', [App\Http\Controllers\ZonesImportController::class, 'results'])->middleware('auth')->name('zones.import.results');
+Route::get('/zones', [App\Http\Controllers\ZonesController::class, 'index'])->middleware('auth')->name('zones');

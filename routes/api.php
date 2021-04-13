@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::post('/zones/import/chunk', [App\Http\Controllers\ZonesImportController::class, 'chunk'])->name('zones.import.chunk');
+Route::get('/zones/import/batch', [App\Http\Controllers\ZonesImportController::class, 'getBusBatch'])->name('zones.import.batch');
+Route::get('/zones/import/store', [App\Http\Controllers\ZonesImportController::class, 'store'])->name('zones.import.store');
+
+
+
