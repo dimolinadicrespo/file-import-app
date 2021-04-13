@@ -50,6 +50,16 @@ class ZonesImportController extends Controller
     }
 
     /**
+     * Display a view for show results
+     *
+     * @return Renderable
+     */
+    public function errors()
+    {
+        return view('zones.errors');
+    }
+
+    /**
      * @return Batch | array
      */
     public function getBusBatch()

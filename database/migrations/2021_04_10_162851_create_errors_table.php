@@ -17,7 +17,7 @@ class CreateErrorsTable extends Migration
             $table->id();
             $table->string('file_chunk');
             $table->string('number_of_errors');
-            $table->string('line_numbers');
+            $table->text('line_numbers');
             $table->timestamps();
         });
     }

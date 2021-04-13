@@ -38,10 +38,13 @@
                         <ul class="navbar-nav mr-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}"><i class="fas fa-user-tie small mr-1"></i>Importar zonas</a>
+                                <a class="nav-link" href="{{ route('home') }}"><i class="fas fa-chart-area mr-1"></i>Import zones</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('zones.import.results') }}"><i class="fas fa-box-open small mr-1"></i>Resultados</a>
+                                <a class="nav-link" href="{{ route('zones.import.results') }}"><i class="fas fa-box-open small mr-1"></i>Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('zones.import.errors') }}"><i class="fas fa-bug mr-1"></i>Errors</a>
                             </li>
                         </ul>
                     @endauth

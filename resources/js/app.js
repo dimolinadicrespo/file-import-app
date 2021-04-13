@@ -24,6 +24,7 @@ window.EventBus = new Vue();
 Vue.component('import-file-component', require('./components/ImportFileComponent.vue').default);
 Vue.component('progress-bar-component', require('./components/ProgressBarComponent.vue').default);
 Vue.component('results-table', require('./components/ResultsTable.vue').default);
+Vue.component('errors-table', require('./components/ErrorsTable.vue').default);
 
 import csvProcessor from './mixin/csvProccess.js';
 import DataTable from 'laravel-vue-datatable';

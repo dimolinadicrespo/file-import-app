@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::get('/zones/results', [App\Http\Controllers\ZonesImportController::class, 'results'])->middleware('auth')->name('zones.import.results');
 Route::get('/zones', [App\Http\Controllers\ZonesController::class, 'index'])->middleware('auth')->name('zones');
+Route::get('/errors', [App\Http\Controllers\ZonesImportController::class, 'errors'])->middleware('auth')->name('zones.import.errors');
+Route::get('/zones/errors', [App\Http\Controllers\ErrorsImportZonesController::class, 'index'])->middleware('auth')->name('errors');
+
