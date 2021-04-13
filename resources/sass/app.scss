@@ -13,3 +13,27 @@
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
+.navbar-ImportationApp {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#customFile .custom-file-input:lang(en)::after {
+    content: "Select file...";
+}
+
+#customFile .custom-file-input:lang(en)::before {
+    content: "Click me";
+}
+
+/*when a value is selected, this class removes the content */
+.custom-file-input.selected:lang(en)::after {
+    content: "" !important;
+}
+
+.custom-file {
+    overflow: hidden;
+}
+.custom-file-input {
+    white-space: nowrap;
+}

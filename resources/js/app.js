@@ -19,7 +19,18 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+window.EventBus = new Vue();
+
+Vue.component('import-file-component', require('./components/ImportFileComponent.vue').default);
+Vue.component('progress-bar-component', require('./components/ProgressBarComponent.vue').default);
+Vue.component('results-table', require('./components/ResultsTable.vue').default);
+
+import csvProcessor from './mixin/csvProccess.js';
+import DataTable from 'laravel-vue-datatable';
+
+Vue.use(DataTable);
+
+Vue.mixin(csvProcessor);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,3 +41,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
