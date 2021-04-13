@@ -17,7 +17,7 @@ class ZonesController extends Controller
         $result = DB::table('zones')
             ->select('zone_id', 'zone_name', DB::raw('count(*) as num'), DB::raw('MIN(start_date) as min_date'), DB::raw('MAX(finish_date) as max_date'))
             ->groupBy('zone_id', 'zone_name')
-            ->orderBy('min_date')
+            ->orderBy('zone_id')
             ->paginate(10);
 
         return new DataTableCollectionResource($result);
