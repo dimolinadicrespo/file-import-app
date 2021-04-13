@@ -4,30 +4,44 @@
 
 - Insert project into empty folder / git clone https://github.com/dimolinadicrespo/file-import-app.git
 - Create an empty database
-- Rename the .env.example to .env
-- Change the .env with your database config
+- Copy or rename the .env.example file
+
+```
+cp .env.example .env
+```
+
+- Change the .env vars with your database config
 
 ```
 DB_CONNECTION=mysql
 DB_HOST=localhost
-DB_PORT=8889
-DB_DATABASE=files
-DB_USERNAME=root
-DB_PASSWORD=root
+DB_PORT=your_port
+DB_DATABASE=your_databas_name
+DB_USERNAME=your_user
+DB_PASSWORD=your_password
+```
+
+- Check de queue config in your .env file, must be set to 'database'
 
 ```
 
-Run the following commands
+QUEUE_CONNECTION=database
+
+```
+
+
+- Run the following commands
 
 ```
 composer install
 php artisan migrate --seed
 npm install && npm run prod
+php artisan key:generate
 php artisan serve
 
 ```
 
-It is necessary to run the following command, as the processing and insertion of data is done through queues
+Es necesario ejecutar el siguiente comando en un terminal, ya que el procesamiento e inserción de datos se realiza a través de colas
 
 ```
 php artisan queue:work
