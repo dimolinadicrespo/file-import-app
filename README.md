@@ -59,19 +59,18 @@ password: 12345678
 
 ### Important Notes
 
-    In this version of laravel something strange happens with json paging.
-    
-    In the class 
+- In this version of laravel something strange happens with json pagination.
+- In the class 
 ```
     vendor/laravel/framework/src/Illuminate/Http/Resources/Json/PaginatedResourceResponse.php
 
 ```
-    For the correct functioning of the table listing you have to replace line 29
+- For the correct functioning of the table listing you have to replace line 29
     
 ```    
     return is_array($item) ? Arr::get($item, 'resource') : $item->resource;
 ```    
-    by 
+ by 
 ```    
     return is_array($item) ? Arr::get($item, 'resource') : $item;
 ```
