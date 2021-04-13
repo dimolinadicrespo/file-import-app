@@ -57,7 +57,7 @@ password: 12345678
 
 ```
 
-- Important Notes
+### Important Notes
 
     In this version of laravel something strange happens with json paging.
     
