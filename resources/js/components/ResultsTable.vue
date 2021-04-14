@@ -1,7 +1,7 @@
 <template>
     <data-table
         :columns="columns"
-        :per-page="[]"
+        :per-page="['10', '25', '50']"
         url="/zones">
     </data-table>
 </template>
@@ -17,31 +17,31 @@ export default {
                 {
                     label: 'Zone id',
                     name: 'zone_id',
-                    orderable: false,
+                    orderable: true,
                 },
                 {
                     label: 'Zone Name',
                     name: 'zone_name',
-                    orderable: false,
+                    orderable: true,
                 },
                 {
                     label: 'Repeat records',
                     name: 'num',
-                    orderable: false,
+                    orderable: true,
                 },
                 {
                     label: 'Min Date',
                     name: 'min_date',
-                    orderable: false,
+                    orderable: true,
                 },
                 {
                     label: 'Max Date',
                     name: 'max_date',
-                    orderable: false,
+                    orderable: true,
                 },
             ]
         }
-    },
+    }
 }
 
 </script>

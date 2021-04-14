@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Traits\DataTableError;
 use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 
 class ErrorsImportZonesController extends Controller
 {
+    use DataTableError;
     /**
      * Display a listing of the resource.
      *
@@ -15,11 +15,6 @@ class ErrorsImportZonesController extends Controller
      */
     public function index()
     {
-        $result = DB::table('errors')
-            ->select('file_chunk', 'number_of_errors', 'line_numbers')
-            ->orderBy('file_chunk')
-            ->paginate(10);
-
-        return new DataTableCollectionResource($result);
+        return new DataTableCollectionResource($this->getData());
     }
 }
